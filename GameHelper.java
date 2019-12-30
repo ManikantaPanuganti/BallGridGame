@@ -1,29 +1,21 @@
-import java.util.*;
-public class GameHelper{
-  Location ball;
-  Location person;
-  GameHelper(){
-    ball=new Location((int)(Math.random()*10),(int)(Math.random()*10));
-    person=new Location(0,0);
-    System.out.println("Ball Placed at Location: "+ball.x+" "+ball.y);
-  }
-  //THis is a brutForce solution
-  void runGame(){
-
-    //x dirextioj moving
-    while(person.x<ball.x){
-      System.out.println("moved in x direction "+person.x+" "+person.y);
-      person.x++;
+public class GameHelper {
+    static void findPath(Ball ball,Person person){
+        //moving in X_direction
+        int x_Direction_steps,y_Direction_steps;
+        x_Direction_steps=ball.location.x_coordinate-person.location.x_coordinate;
+        y_Direction_steps=ball.location.y_coordinate-person.location.y_coordinate;
+        person.location.x_coordinate+=x_Direction_steps;
+        System.out.println("Person moved in X_direction "+x_Direction_steps+" steps and he is at "+person.location.x_coordinate+" "+person.location.y_coordinate);
+        person.location.y_coordinate+=y_Direction_steps;
+        System.out.println("Person moved in Y_direction "+y_Direction_steps+" steps and he is at "+person.location.x_coordinate+" "+person.location.y_coordinate);
     }
-    System.out.println("moved in x direction "+person.x+" "+person.y);
-    while(person.y<ball.x){
-      System.out.println("moved in y direction "+person.x+" "+person.y);
-      person.y++;
+    public static void main(String[] args){
+        int x_coordinate,y_coordinate;
+        x_coordinate= (int)(Math.random()*10);
+        y_coordinate= (int)(Math.random()*10);
+        Ball ball=new Ball(x_coordinate,y_coordinate);
+        System.out.println("Ball is at:"+ball.location.x_coordinate+" "+ball.location.y_coordinate);
+        Person person=new Person();
+        findPath(ball,person);
     }
-    System.out.println("moved in y direction "+person.x+" "+person.y);
-  }
-  public static void main(String[] args){
-    GameHelper g=new GameHelper();
-    g.runGame();
-  }
 }

@@ -1,15 +1,9 @@
-public class Location{
-  int x;
-  int y;
-  Location(){
-    this.x=0;
-    this.y=0;
-  }
-  Location(int x,int y){
-    this.x=x;
-    this.y=y;
-  }
-  public String toString(){
-    return x+" "+y;
-  }
+public class Location {
+    int x_coordinate;
+    int y_coordinate;
+
+    Location(int x_coordinate, int y_coordinate) {
+        this.x_coordinate = x_coordinate;
+        this.y_coordinate = y_coordinate;
+    }
 }
