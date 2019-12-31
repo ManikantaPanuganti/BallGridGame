@@ -9,4 +9,11 @@ public class Person {
     void move_in_y_direction(int steps){
         this.location.y_coordinate+=steps;
     }
+
+    @Override
+    public String toString() {
+        return "Person{" +
+                "location=" + location +
+                '}';
+    }
 }

@@ -6,4 +6,12 @@ public class Location {
         this.x_coordinate = x_coordinate;
         this.y_coordinate = y_coordinate;
     }
+
+    @Override
+    public String toString() {
+        return "Location{" +
+                "x_coordinate=" + x_coordinate +
+                ", y_coordinate=" + y_coordinate +
+                '}';
+    }
 }

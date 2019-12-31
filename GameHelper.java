@@ -1,21 +1,52 @@
 public class GameHelper {
-    static void findPath(Ball ball,Person person){
-        //moving in X_direction
-        int x_Direction_steps,y_Direction_steps;
-        x_Direction_steps=ball.location.x_coordinate-person.location.x_coordinate;
-        y_Direction_steps=ball.location.y_coordinate-person.location.y_coordinate;
-        person.location.x_coordinate+=x_Direction_steps;
-        System.out.println("Person moved in X_direction "+x_Direction_steps+" steps and he is at "+person.location.x_coordinate+" "+person.location.y_coordinate);
-        person.location.y_coordinate+=y_Direction_steps;
-        System.out.println("Person moved in Y_direction "+y_Direction_steps+" steps and he is at "+person.location.x_coordinate+" "+person.location.y_coordinate);
+    Ball ball;
+    Person person;
+    GameHelper(){
+        ball=new Ball((int)(Math.random()*10),(int)(Math.random()*10));
+        System.out.println("Ball is at:"+ball);
+        person = new Person();
     }
+
+    void findPath(){
+        int step=1;
+        int backwordStep=-1;
+        boolean pathFound=false;
+        while(!pathFound){
+            //person moving in x direction forward
+            while(person.location.x_coordinate<=10 && !pathFound) {
+                person.move_in_x_direction(step);
+                pathFound = checkIfBallFound(person.location);
+            }
+            if(person.location.y_coordinate<=10){
+                person.location.y_coordinate++;
+            }
+            //person moving in x direction back word
+            while(person.location.x_coordinate>=0 && !pathFound) {
+                person.move_in_x_direction(backwordStep);
+                pathFound = checkIfBallFound(person.location);
+            }
+        }
+        if(pathFound){
+            System.out.println("Path Found "+person.location);
+        }
+        else{
+            System.out.println("ball not found");
+        }
+    }
+
+    boolean checkIfBallFound(Location location){
+
+        if(location.x_coordinate==ball.location.x_coordinate && location.y_coordinate==ball.location.y_coordinate){
+            return true;
+        }
+        else{
+            return false;
+        }
+    }
+    
     public static void main(String[] args){
-        int x_coordinate,y_coordinate;
-        x_coordinate= (int)(Math.random()*10);
-        y_coordinate= (int)(Math.random()*10);
-        Ball ball=new Ball(x_coordinate,y_coordinate);
-        System.out.println("Ball is at:"+ball.location.x_coordinate+" "+ball.location.y_coordinate);
-        Person person=new Person();
-        findPath(ball,person);
+        GameHelper gameHelper =new GameHelper();
+        gameHelper.findPath();
+
     }
 }

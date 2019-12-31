@@ -3,4 +3,11 @@ public class Ball {
     Ball(int x_coordinate,int y_coordinate){
         location=new Location(x_coordinate,y_coordinate);
     }
+
+    @Override
+    public String toString() {
+        return "Ball{" +
+                "location=" + location +
+                '}';
+    }
 }
