@@ -1,19 +1,28 @@
 public class Person {
-    Location location;
+    private Location location;
+    int girdEnding=10;
     Person(){
         location=new Location(0,0);
     }
-    void move_in_x_direction(int steps){
-        this.location.x_coordinate+=steps;
-    }
-    void move_in_y_direction(int steps){
-        this.location.y_coordinate+=steps;
+
+    public Location getLocation() {
+        return location;
     }
 
-    @Override
-    public String toString() {
-        return "Person{" +
-                "location=" + location +
-                '}';
+    void moveRight(){
+        this.location.x_coordinate++;
     }
+    void moveUp(){
+        this.location.y_coordinate++;
+    }
+    void move(){
+        if(this.location.x_coordinate<girdEnding){
+            this.moveRight();
+        }
+        else{
+            this.moveUp();
+            this.location.x_coordinate=0;
+        }
+    }
+
 }
