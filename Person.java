@@ -1,21 +1,22 @@
 public class Person {
     private Location location;
-    int girdEnding=10;
-    Person(){
-        location=new Location(0,0);
+    int girdEnding;
+    Person(int gridEnding){
+        this.location=new Location(0,0);
+        this.girdEnding=gridEnding;
     }
 
     public Location getLocation() {
         return location;
     }
     void moveLeft(){
-
+        this.location.decrease_Y_coordinate();
     }
     void moveRight(){
-        location.increase_X_coordinate();
+        this.location=location.increase_X_coordinate();
     }
     void moveUp(){
-        location.increase_Y_coordinate();
+        this.location=location.increase_Y_coordinate();
     }
     void move(){
 

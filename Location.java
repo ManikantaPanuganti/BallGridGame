@@ -6,17 +6,20 @@ public class Location {
         this.x_coordinate = x_coordinate;
         this.y_coordinate = y_coordinate;
     }
-    void increase_X_coordinate(){
+    Location increase_X_coordinate(){
         x_coordinate++;
+        return new Location(this.x_coordinate,this.y_coordinate);
     }
-    void decrease_X_coordinate(){
+    Location decrease_X_coordinate(){
         x_coordinate--;
+        return new Location(this.x_coordinate,this.y_coordinate);
     }
-    void increase_Y_coordinate(){
+    Location increase_Y_coordinate(){
         y_coordinate++;
+        return new Location(this.x_coordinate,this.y_coordinate);
     }
-    void decrease_Y_coordinate(){
-
+    Location decrease_Y_coordinate(){
+        return new Location(this.x_coordinate,this.y_coordinate);
     }
     boolean sameLocation(Location secondLocation){
         if(this.x_coordinate==secondLocation.x_coordinate && this.y_coordinate==secondLocation.y_coordinate){
