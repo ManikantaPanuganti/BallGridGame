@@ -8,14 +8,17 @@ public class Person {
     public Location getLocation() {
         return location;
     }
+    void moveLeft(){
 
+    }
     void moveRight(){
-        this.location.x_coordinate++;
+        location.increase_X_coordinate();
     }
     void moveUp(){
-        this.location.y_coordinate++;
+        location.increase_Y_coordinate();
     }
     void move(){
+
         if(this.location.x_coordinate<girdEnding){
             this.moveRight();
         }

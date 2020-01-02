@@ -21,10 +21,10 @@ public class GameHelper {
     }
 
     void findBall(){
-        boolean pathFound=false;
-        while(!pathFound){
+        boolean ballFound=false;
+        while(!ballFound){
             person.move();
-            pathFound=checkIfBallFound(person.getLocation());
+            ballFound=checkIfBallFound(person.getLocation());
         }
     }
 }
